@@ -396,7 +396,7 @@ the whole application ships as static files plus one Node process.
 
 Questions about how any of this was built are welcome.
 
-**[channelssupport@proton.me](mailto:channelssupport@proton.me)**
+**[channelssupport@proton.me](mailto:ayazata2004@gmail.com)**
 
 <sub>Channels ran from 5 July to August 2026. Archived and documented for reference.</sub>
 
