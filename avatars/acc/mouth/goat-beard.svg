@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Soul patch — small rectangle just below the lower lip -->
+  <rect x="45" y="63" width="10" height="5" rx="2.5" fill="#2c1a08"/>
+  <!-- Goatee body — rounded top, tapers to a point at the chin -->
+  <path d="M 43 67 C 40 73 42 79 50 83 C 58 79 60 73 57 67 C 54 64 46 64 43 67 Z" fill="#2c1a08"/>
+</svg>

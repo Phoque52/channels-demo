@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="capdome">
+      <path d="M11 31 Q50 1 89 31 Z"/>
+    </clipPath>
+  </defs>
+  <!-- Rainbow vertical stripes clipped to dome shape -->
+  <g clip-path="url(#capdome)">
+    <rect x="11" y="0" width="13" height="32" fill="#FF4136"/>
+    <rect x="24" y="0" width="13" height="32" fill="#FF851B"/>
+    <rect x="37" y="0" width="13" height="32" fill="#FFDC00"/>
+    <rect x="50" y="0" width="13" height="32" fill="#2ECC40"/>
+    <rect x="63" y="0" width="13" height="32" fill="#0074D9"/>
+    <rect x="76" y="0" width="13" height="32" fill="#B10DC9"/>
+  </g>
+  <!-- Dome outline -->
+  <path d="M11 31 Q50 1 89 31" fill="none" stroke="rgba(0,0,0,0.35)" stroke-width="1.5"/>
+  <!-- Brim -->
+  <ellipse cx="50" cy="31" rx="42" ry="7" fill="#1a1a1a"/>
+  <ellipse cx="50" cy="30" rx="40" ry="5.5" fill="#2b2b2b"/>
+  <!-- Snapback detail line -->
+  <line x1="30" y1="30" x2="70" y2="30" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <!-- Top button -->
+  <circle cx="50" cy="4" r="3" fill="rgba(0,0,0,0.4)"/>
+  <circle cx="50" cy="4" r="2" fill="#888"/>
+</svg>

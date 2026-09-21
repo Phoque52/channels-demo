@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Channels &mdash; Archived</title>
+  <meta name="description" content="Channels (channels.zone) — a privacy-first anonymous forum and virtual world. Built solo in 4 months, launched Jul 2026, shut down Aug 2026. Archived project record.">
+  <link rel="canonical" href="https://phoque52.github.io/channels-demo/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://phoque52.github.io/channels-demo/">
+  <meta property="og:site_name" content="Channels">
+  <meta property="og:title" content="Channels — Archived">
+  <meta property="og:description" content="Channels (channels.zone) — a privacy-first anonymous forum and virtual world. Built solo in 4 months, launched Jul 2026, shut down Aug 2026. Archived project record.">
+  <meta property="og:image" content="https://phoque52.github.io/channels-demo/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Channels — rooms, stages, a neighborhood, a shared canvas. All anonymous.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Channels — Archived">
+  <meta name="twitter:description" content="Channels (channels.zone) — a privacy-first anonymous forum and virtual world. Built solo in 4 months, launched Jul 2026, shut down Aug 2026. Archived project record.">
+  <meta name="twitter:image" content="https://phoque52.github.io/channels-demo/assets/og-card.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="180x180" href="assets/favicon-180.png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    main { display: block; padding: 0; }
+
+    /* ─── ARCHIVED BANNER ──────────────────────────── */
+    .archived-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 110; height: 38px; display: flex; align-items: center; justify-content: center; gap: 0.55rem; padding: 0 1.25rem; background: #12141a; border-bottom: 1px solid #262b33; font-size: 0.72rem; font-weight: 300; color: var(--text-sec); letter-spacing: 0.01em; }
+    .ab-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--warm); flex-shrink: 0; }
+    .ab-text strong { color: var(--text); font-weight: 500; }
+    .ab-link { color: var(--warm); text-decoration: none; border-bottom: 1px solid transparent; white-space: nowrap; }
+    .ab-link:hover { border-bottom-color: var(--warm); }
+    header { top: 38px !important; }
+    @media (max-width: 760px) { .ab-long { display: none; } }
+
+    .wrap { max-width: 1020px; margin: 0 auto; padding: 0 2.5rem; }
+
+    section { position: relative; z-index: 1; }
+
+    .s-label { display: block; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.75rem; }
+
+    /* ─── HERO ─────────────────────────────────────── */
+    #hero { min-height: 100vh; padding: calc(102px + 6rem) 2rem 7rem; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+
+    #hero::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, var(--border) 30%, var(--border) 70%, transparent 100%); }
+
+    .hero-inner { max-width: 640px; width: 100%; position: relative; z-index: 1; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+
+    .hero-wordmark { font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 5rem); font-weight: 400; color: var(--text); letter-spacing: 0.01em; line-height: 1; margin-bottom: 1rem; }
+
+    .hero-h1 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; font-style: italic; color: var(--text); line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+
+    .hero-cursor { display: inline-block; width: 3px; height: 0.85em; background: var(--warm); margin-left: 0.08em; vertical-align: baseline; position: relative; top: 0.05em; animation: cursorBlink 0.75s step-end infinite; }
+
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-cursor { animation: none; }
+    }
+
+    .hero-sub { font-size: 0.95rem; font-weight: 300; color: var(--text-sec); line-height: 1.7; max-width: 440px; margin-bottom: 1.75rem; }
+
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.75rem; }
+
+    .hero-stats { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.76rem; color: var(--accent); min-height: 1.2em; }
+
+    .hero-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--warm); opacity: 0.65; flex-shrink: 0; }
+
+    .hero-learnmore { position: absolute; bottom: 2.25rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-decoration: none; color: var(--accent); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.45; transition: opacity 0.2s; white-space: nowrap; }
+
+    .hero-learnmore:hover { opacity: 0.85; }
+
+    .hero-learnmore svg { animation: learnBob 1.8s ease-in-out infinite; }
+
+    @keyframes learnBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-learnmore svg { animation: none; }
+    }
+
+    /* ─── PILLARS ───────────────────────────────────── */
+    #pillars { border-bottom: 1px solid var(--border); }
+
+    .pillars-inner { display: grid; grid-template-columns: repeat(4, 1fr); }
+
+    .pillar { padding: 1.6rem 1.75rem; border-right: 1px solid var(--border); }
+
+    .pillar:last-child { border-right: none; }
+
+    .pillar-label { display: block; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm); margin-bottom: 0.5rem; opacity: 0.8; }
+
+    .pillar-text { font-size: 0.8rem; color: var(--text-sec); font-weight: 300; line-height: 1.65; }
+
+    /* ─── FEATURES ──────────────────────────────────── */
+    #features { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+
+    .features-lead { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 3rem; }
+
+    .features-h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 400; color: var(--text); line-height: 1.15; }
+
+    .features-sub { font-size: 0.87rem; color: var(--text-sec); font-weight: 300; line-height: 1.8; }
+
+    .features-block-label { display: block; font-size: 0.56rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-top: 2.75rem; margin-bottom: 1.25rem; opacity: 0.7; }
+
+    .features-lead + .features-block-label { margin-top: 0; }
+
+    .hubs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+
+    .hub-card { background: var(--bg); padding: 1.75rem 1.5rem 2rem; display: flex; flex-direction: column; }
+
+    .hub-npc-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.1rem; }
+
+    .npc-av { flex-shrink: 0; line-height: 0; }
+
+    .npc-av svg { display: block; }
+
+    .hub-npc-name { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.05em; }
+
+    .hub-id { font-family: monospace; font-size: 0.72rem; color: var(--warm); letter-spacing: 0.03em; margin-bottom: 0.55rem; opacity: 0.85; }
+
+    .hub-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; color: var(--text); line-height: 1.3; margin-bottom: 0.6rem; }
+
+    .hub-desc { font-size: 0.8rem; color: var(--text-sec); font-weight: 300; line-height: 1.7; flex: 1; }
+
+    .forum-block { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+
+    .forum-header { display: grid; grid-template-columns: 1fr 1fr; }
+
+    .forum-col-head { padding: 0.7rem 1.25rem; font-size: 0.56rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); }
+
+    .forum-col-head:first-child { border-right: 1px solid var(--border); }
+
+    .forum-channels { display: grid; grid-template-columns: 1fr 1fr; }
+
+    .forum-col:first-child { border-right: 1px solid var(--border); }
+
+    .forum-ch { display: flex; align-items: baseline; gap: 0.45rem; padding: 0.5rem 1.25rem; border-bottom: 1px solid var(--border); transition: background 0.1s; }
+
+    .forum-ch:hover { background: rgba(255,255,255,0.02); }
+
+    .ch-prefix { font-family: monospace; font-size: 0.65rem; color: var(--accent); flex-shrink: 0; }
+
+    .ch-name { font-size: 0.8rem; color: var(--text-sec); font-weight: 300; }
+
+    .forum-footer { padding: 0.8rem 1.25rem; font-size: 0.76rem; color: var(--accent); font-weight: 300; border-top: 1px solid var(--border); background: rgba(255,255,255,0.01); }
+
+    .gif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+    .gif-slot { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--bg); line-height: 0; }
+
+    .gif-slot video { width: 100%; height: auto; display: block; }
+
+    .gif-item { display: flex; flex-direction: column; gap: 0.9rem; }
+
+    .gif-caption { display: flex; flex-direction: column; gap: 0.2rem; }
+
+    .gif-cap-id { font-family: monospace; font-size: 0.72rem; color: var(--warm); letter-spacing: 0.03em; opacity: 0.85; }
+
+    .gif-cap-desc { font-size: 0.8rem; color: var(--text-sec); font-weight: 300; line-height: 1.5; }
+
+    /* ─── PRIVACY ───────────────────────────────────── */
+    #privacy { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+
+    .privacy-lead { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 3rem; }
+
+    .privacy-h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 400; color: var(--text); line-height: 1.15; }
+
+    .privacy-intro { font-size: 0.87rem; color: var(--text-sec); font-weight: 300; line-height: 1.8; }
+
+    .privacy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 4rem; }
+
+    .privacy-block-title { font-size: 0.78rem; font-weight: 500; color: var(--text); letter-spacing: 0.03em; margin-bottom: 0.75rem; }
+
+    .privacy-block-body { font-size: 0.82rem; color: var(--text-sec); font-weight: 300; line-height: 1.8; }
+
+    .privacy-block-body p + p { margin-top: 0.65rem; }
+
+    .privacy-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+
+    .privacy-list li::before { content: "· "; color: var(--accent); }
+
+    .privacy-sec-logos { display: flex; flex-direction: row; gap: 2.5rem; align-items: center; }
+
+    .privacy-sec-logo { display: block; opacity: 0.85; }
+
+    .sec-stack { margin-top: 2.75rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+
+    .sec-brand-line { display: flex; align-items: baseline; gap: 0.4rem; font-size: 0.78rem; color: var(--accent); margin-bottom: 1.25rem; }
+
+    .sec-brand-word { font-family: var(--font-serif); font-size: 1.05rem; color: var(--text); letter-spacing: 0.01em; }
+
+    .sec-brand-by { opacity: 0.55; }
+
+    /* ─── HOW IT WORKS ──────────────────────────────── */
+    #how { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 2.5rem; }
+
+    .how-num { display: block; font-family: var(--font-serif); font-size: 4rem; font-weight: 400; font-style: italic; color: var(--border); line-height: 1; margin-bottom: 1.25rem; }
+
+    .how-title { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 0.65rem; line-height: 1.45; }
+
+    .how-body { font-size: 0.82rem; color: var(--text-sec); font-weight: 300; line-height: 1.8; }
+
+    .how-cta { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+
+    .how-cta-copy { font-size: 0.87rem; color: var(--text-sec); font-weight: 300; line-height: 1.7; max-width: 480px; }
+
+    .how-cta-copy strong { color: var(--text); font-weight: 400; }
+
+    .how-cta-actions { display: flex; gap: 0.65rem; flex-shrink: 0; }
+
+    /* ─── CHANGELOG ─────────────────────────────────── */
+    #changelog { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+
+    .cl-list { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+
+    .cl-entry { display: grid; grid-template-columns: 80px 1fr; gap: 2.25rem; padding: 1.75rem; border-bottom: 1px solid var(--border); align-items: start; }
+
+    .cl-entry:last-child { border-bottom: none; }
+
+    .cl-ver-wrap { display: flex; flex-direction: column; gap: 0.35rem; padding-top: 0.1rem; }
+
+    .cl-ver { font-family: var(--font-serif); font-size: 1rem; font-style: italic; color: var(--text); white-space: nowrap; }
+
+    .cl-date { font-size: 0.55rem; font-weight: 400; color: var(--accent); letter-spacing: 0.02em; white-space: nowrap; }
+
+    .cl-badge { font-family: var(--font-sans); font-style: normal; font-size: 0.52rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm); margin-left: 0.35rem; vertical-align: 0.1em; opacity: 0.8; }
+
+    .cl-body { font-size: 0.83rem; color: var(--text-sec); font-weight: 300; line-height: 1.8; }
+
+    .cl-items { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .cl-items li::before { content: "· "; color: var(--accent); }
+
+    /* ─── DONATE ────────────────────────────────────── */
+    #postmortem { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+    .pm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; }
+    .pm-h2 { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 400; font-style: italic; color: var(--text); line-height: 1.1; margin-bottom: 1.25rem; }
+    .pm-body { font-size: 0.88rem; color: var(--text-sec); font-weight: 300; line-height: 1.9; margin-bottom: 1.25rem; }
+    .pm-body strong { color: var(--text); font-weight: 500; }
+    .pm-reasons { display: flex; flex-direction: column; gap: 1.6rem; counter-reset: pm; }
+    .pm-reason { padding-left: 2.2rem; position: relative; counter-increment: pm; }
+    .pm-reason::before { content: counter(pm); position: absolute; left: 0; top: 0.1rem; font-family: var(--font-serif); font-size: 1.1rem; color: var(--warm); }
+    .pm-reason-t { font-size: 0.85rem; color: var(--text); font-weight: 500; margin-bottom: 0.4rem; line-height: 1.5; }
+    .pm-reason-b { font-size: 0.82rem; color: var(--text-sec); font-weight: 300; line-height: 1.8; }
+    .pm-close { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-sec); font-weight: 300; line-height: 1.85; font-style: italic; }
+
+    /* ─── SUPPORT ───────────────────────────────────── */
+    #support { padding: 6rem 0 9rem; }
+
+    .support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; }
+
+    .support-h2 { font-family: var(--font-serif); font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 1.75rem; }
+
+    .murph-card { display: flex; gap: 1rem; align-items: flex-start; padding: 1.1rem 1.25rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 1.6rem; }
+
+    .murph-name { font-size: 0.85rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+
+    .murph-line { font-size: 0.81rem; color: var(--text-sec); font-weight: 300; line-height: 1.65; }
+
+    .support-body { font-size: 0.85rem; color: var(--text-sec); font-weight: 300; line-height: 1.85; margin-bottom: 1.5rem; }
+
+    .contact-email { display: inline-flex; align-items: center; gap: 0.65rem; padding: 0.65rem 1rem; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text-sec); font-size: 0.84rem; font-weight: 300; margin-bottom: 0.9rem; transition: border-color 0.18s, color 0.18s, background 0.18s; }
+
+    .contact-email:hover { border-color: var(--accent); color: var(--text); background: rgba(255,255,255,0.03); }
+
+    .contact-email svg { opacity: 0.5; flex-shrink: 0; transition: opacity 0.18s; }
+
+    .contact-email:hover svg { opacity: 0.9; }
+
+    .contact-email-arrow { margin-left: auto; opacity: 0.3; font-size: 0.75rem; transition: opacity 0.18s, transform 0.18s; }
+
+    .contact-email:hover .contact-email-arrow { opacity: 0.7; transform: translateX(2px); }
+
+    .support-right { font-size: 0.85rem; color: var(--text-sec); font-weight: 300; line-height: 1.9; }
+
+    /* ─── RESPONSIVE ────────────────────────────────── */
+    @media (max-width: 1100px) {
+      nav.header-nav, .header-right { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 960px) {
+      .pillars-inner { grid-template-columns: repeat(2, 1fr); }
+      .pillar:nth-child(2) { border-right: none; }
+      .pillar:nth-child(3), .pillar:nth-child(4) { border-top: 1px solid var(--border); }
+      .pillar:nth-child(4) { border-right: none; }
+      .hubs-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-lead { grid-template-columns: 1fr; gap: 1.5rem; }
+      .privacy-lead { grid-template-columns: 1fr; gap: 1.5rem; }
+      .privacy-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .pm-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .support-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .how-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .how-cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 1.25rem; }
+      #hero { padding: calc(64px + 3rem) 1.25rem 5rem; }
+      .pillars-inner { grid-template-columns: 1fr; }
+      .pillar { border-right: none; border-top: 1px solid var(--border); }
+      .pillar:first-child { border-top: none; }
+      .hubs-grid { grid-template-columns: 1fr; }
+      .gif-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .cl-entry { grid-template-columns: 50px 1fr; gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
+  <div class="header-left">
+    <a href="/" class="header-logo">Channels</a>
+    <nav class="header-nav" aria-label="Page sections">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#how">How It Works</a>
+      <a href="#changelog">Changelog</a>
+      <a href="#postmortem">Why It Ended</a>
+      <a href="#support">Support</a>
+    </nav>
+  </div>
+  <div class="header-right">
+    <a href="#postmortem" class="btn btn-ghost">Post-mortem</a>
+    <a href="https://youtu.be/6gTw8FKWJUM" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Walkthrough</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features">Features</a>
+  <a href="#privacy">Privacy</a>
+  <a href="#how">How It Works</a>
+  <a href="#changelog">Changelog</a>
+  <a href="#postmortem">Why It Ended</a>
+  <a href="#support">Support</a>
+  <div class="mobile-btns">
+    <a href="#postmortem" class="btn btn-ghost">Post-mortem</a>
+    <a href="https://youtu.be/6gTw8FKWJUM" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Walkthrough</a>
+  </div>
+</div>
+
+<div class="archived-banner" role="status">
+  <span class="ab-dot" aria-hidden="true"></span>
+  <span class="ab-text"><strong>Project archived.</strong><span class="ab-long"> Channels shut down in August 2026 and is no longer online. This page is a preserved record.</span></span>
+  <a href="#postmortem" class="ab-link">Why it ended &rarr;</a>
+</div>
+
+<main id="main-content">
+
+  <!-- ───── HERO ───── -->
+  <section id="hero">
+    <div class="hero-inner">
+
+      <div class="hero-wordmark">Channels</div>
+
+      <h1 class="hero-h1" id="heroHeadline">Rooms, stages, a neighborhood, a shared canvas. All anonymous.<span class="hero-cursor" aria-hidden="true"></span></h1>
+
+      <p class="hero-sub">A privacy-first forum, and a virtual world led by users. Built solo in four months. Live for six weeks.</p>
+
+      <div class="hero-actions">
+        <a href="https://youtu.be/6gTw8FKWJUM" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">Watch the walkthrough</a>
+        <a href="#postmortem" class="btn btn-ghost btn-large">Why it ended</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-dot"></div>
+        <span id="heroStatsText">Launched Jul 2026 &middot; Shut down Aug 2026 &middot; Archived</span>
+      </div>
+
+    </div>
+
+    <a href="#pillars" class="hero-learnmore" aria-label="Learn more">
+      Learn More
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="2,4 6,8 10,4"></polyline>
+      </svg>
+    </a>
+  </section>
+
+  <!-- ───── PILLARS ───── -->
+  <section id="pillars" aria-label="Core values">
+    <div class="pillars-inner">
+      <div class="pillar">
+        <span class="pillar-label">No ads</span>
+        <p class="pillar-text">Nothing is sold here.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-label">No algorithm</span>
+        <p class="pillar-text">Content is chronological. There is no system deciding what you should or shouldn't see.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-label">No real name</span>
+        <p class="pillar-text">You get a generated username. No personal information required.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-label">No investors</span>
+        <p class="pillar-text">It ran on donations. There were no stakeholders to answer to &mdash; and no way to become a business.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── FEATURES ───── -->
+  <section id="features">
+    <div class="wrap">
+      <span class="s-label">What's inside</span>
+      <div class="features-lead">
+        <h2 class="features-h2">A world, not just a website.</h2>
+        <p class="features-sub">Most forum software is just threads and replies. Channels has a virtual world you can walk through: hub spaces with real characters, synchronized cinema rooms, a neighborhood with homes you can claim, and a shared canvas that the whole community draws on.</p>
+      </div>
+
+      <span class="features-block-label">Hubs</span>
+      <div class="hubs-grid">
+        <div class="hub-card">
+          <div class="hub-npc-row">
+            <div class="npc-av" id="npc-rivers">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="60" height="60">
+                <defs><radialGradient id="bh1" cx="36%" cy="26%" r="55%"><stop offset="0%" stop-color="rgba(255,255,255,0.55)"/><stop offset="100%" stop-color="rgba(220,220,220,0.18)"/></radialGradient></defs>
+                <circle cx="50" cy="50" r="38" fill="#FAFAFA"/>
+                <circle cx="50" cy="50" r="38" fill="url(#bh1)"/>
+                <circle cx="37" cy="43" r="3.2" fill="#1A1A1A"/>
+                <circle cx="63" cy="43" r="3.2" fill="#1A1A1A"/>
+                <path d="M 41 58 Q 50 66 59 58" fill="none" stroke="#444" stroke-width="2.2" stroke-linecap="round"/>
+                <image href="avatars/acc/eye/rivers-glasses.svg" x="0" y="0" width="100" height="100"/>
+              </svg>
+            </div>
+            <span class="hub-npc-name">Rivers</span>
+          </div>
+          <div class="hub-id">h/music</div>
+          <div class="hub-title">Five stages. Six instruments. Real-time.</div>
+          <p class="hub-desc">Walk into a stage room and play piano, guitar, bass, violin, saxophone, or drums. Everyone in the room hears what you play, live.</p>
+        </div>
+        <div class="hub-card">
+          <div class="hub-npc-row">
+            <div class="npc-av" id="npc-fred">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="60" height="60">
+                <defs><radialGradient id="bh2" cx="36%" cy="26%" r="55%"><stop offset="0%" stop-color="rgba(255,255,255,0.55)"/><stop offset="100%" stop-color="rgba(220,220,220,0.18)"/></radialGradient></defs>
+                <circle cx="50" cy="50" r="38" fill="#FAFAFA"/>
+                <circle cx="50" cy="50" r="38" fill="url(#bh2)"/>
+                <circle cx="37" cy="43" r="3.2" fill="#1A1A1A"/>
+                <circle cx="63" cy="43" r="3.2" fill="#1A1A1A"/>
+                <path d="M 41 58 Q 50 66 59 58" fill="none" stroke="#444" stroke-width="2.2" stroke-linecap="round"/>
+                <image href="avatars/acc/eye/freds-glasses.svg" x="0" y="0" width="100" height="100"/>
+              </svg>
+            </div>
+            <span class="hub-npc-name">Fred</span>
+          </div>
+          <div class="hub-id">h/cinema</div>
+          <div class="hub-title">Five rooms. One video. Synchronized.</div>
+          <p class="hub-desc">Load a YouTube video and every person in the room watches the same thing at the same timestamp. One person hosts; the room follows.</p>
+        </div>
+        <div class="hub-card">
+          <div class="hub-npc-row">
+            <div class="npc-av" id="npc-boyah">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="60" height="60">
+                <defs><radialGradient id="bh3" cx="36%" cy="26%" r="55%"><stop offset="0%" stop-color="rgba(255,255,255,0.55)"/><stop offset="100%" stop-color="rgba(220,220,220,0.18)"/></radialGradient></defs>
+                <circle cx="50" cy="50" r="38" fill="#FAFAFA"/>
+                <circle cx="50" cy="50" r="38" fill="url(#bh3)"/>
+                <circle cx="37" cy="43" r="3.2" fill="#1A1A1A"/>
+                <circle cx="63" cy="43" r="3.2" fill="#1A1A1A"/>
+                <path d="M 41 58 Q 50 66 59 58" fill="none" stroke="#444" stroke-width="2.2" stroke-linecap="round"/>
+                <image href="avatars/acc/eye/eyeliner.svg" x="0" y="0" width="100" height="100"/>
+                <image href="avatars/acc/hat/boyahs-cap.svg" x="0" y="-7" width="100" height="100"/>
+              </svg>
+            </div>
+            <span class="hub-npc-name">Boyah</span>
+          </div>
+          <div class="hub-id">h/paintit</div>
+          <div class="hub-title">A shared 500&times;500 canvas.</div>
+          <p class="hub-desc">One pixel per user every 60 seconds. Sixteen colors. The canvas is persistent. It belongs to everyone who has ever placed a pixel on it.</p>
+        </div>
+        <div class="hub-card">
+          <div class="hub-npc-row">
+            <div class="npc-av" id="npc-william">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="60" height="60">
+                <defs><radialGradient id="bh4" cx="36%" cy="26%" r="55%"><stop offset="0%" stop-color="rgba(255,255,255,0.55)"/><stop offset="100%" stop-color="rgba(220,220,220,0.18)"/></radialGradient></defs>
+                <circle cx="50" cy="50" r="38" fill="#FAFAFA"/>
+                <circle cx="50" cy="50" r="38" fill="url(#bh4)"/>
+                <circle cx="37" cy="43" r="3.2" fill="#1A1A1A"/>
+                <circle cx="63" cy="43" r="3.2" fill="#1A1A1A"/>
+                <path d="M 41 58 Q 50 66 59 58" fill="none" stroke="#444" stroke-width="2.2" stroke-linecap="round"/>
+                <image href="avatars/acc/mouth/mustache.svg" x="0" y="0" width="100" height="100"/>
+                <image href="avatars/acc/hat/williams-hat.svg" x="0" y="-7" width="100" height="100"/>
+              </svg>
+            </div>
+            <span class="hub-npc-name">William</span>
+          </div>
+          <div class="hub-id">h/neighborhood</div>
+          <div class="hub-title">1,800 homes across 10 cities.</div>
+          <p class="hub-desc">Claim a home. Furnish it with instruments, a canvas, a TV. Give people keys to visit. It's yours as long as you come back.</p>
+        </div>
+      </div>
+
+      <span class="features-block-label">Channels</span>
+      <div class="forum-block">
+        <div class="forum-header">
+          <div class="forum-col-head">Official channels</div>
+          <div class="forum-col-head">&nbsp;</div>
+        </div>
+        <div class="forum-channels">
+          <div class="forum-col">
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">general</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">askanything</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">technology</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">programming</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">science</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">philosophy</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">gaming</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">creative</span></div>
+          </div>
+          <div class="forum-col">
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">music</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">books</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">health</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">politics</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">worldevents</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">random</span></div>
+            <div class="forum-ch"><span class="ch-prefix">c/</span><span class="ch-name">offbeat</span></div>
+          </div>
+        </div>
+        <div class="forum-footer">+ user-created channels (uc/). Anyone can start one, two per day.</div>
+      </div>
+
+      <span class="features-block-label">A look inside</span>
+      <div class="gif-grid">
+        <div class="gif-item">
+          <div class="gif-slot">
+            <video src="assets/channels.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="gif-caption">
+            <span class="gif-cap-id">Channels</span>
+            <span class="gif-cap-desc">Community-run topic channels. Browse threads, post, and reply right away.</span>
+          </div>
+        </div>
+        <div class="gif-item">
+          <div class="gif-slot">
+            <video src="assets/user-channels.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="gif-caption">
+            <span class="gif-cap-id">User Channels</span>
+            <span class="gif-cap-desc">Anyone can start one. Two per day. Yours to run however you want.</span>
+          </div>
+        </div>
+        <div class="gif-item">
+          <div class="gif-slot">
+            <video src="assets/hubs.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="gif-caption">
+            <span class="gif-cap-id">Hubs</span>
+            <span class="gif-cap-desc">Real-time spaces you walk through. Music, cinema, a shared canvas, a neighborhood.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───── PRIVACY ───── -->
+  <section id="privacy">
+    <div class="wrap">
+      <span class="s-label">Privacy</span>
+      <div class="privacy-lead">
+        <h2 class="privacy-h2">What the server knows. And what it doesn't.</h2>
+        <p class="privacy-intro">Channels was built on the assumption that a platform should collect as little about you as possible. This section states exactly what the server stores, how your IP is handled, and where the limits of that protection are.</p>
+      </div>
+      <div class="privacy-grid">
+        <div class="privacy-block">
+          <div class="privacy-block-title">What the server stores</div>
+          <div class="privacy-block-body">
+            <p>Your generated username, an Argon2id hash of your passphrase, and an Argon2id hash of your passitems. The raw passphrase and passitems are deleted from the server the moment they are displayed to you during signup.</p>
+            <p>Content you create: threads, replies, pixels on the shared Paintit canvas, your avatar configuration. Home and neighborhood data if you claim a home.</p>
+            <p>A session token. Sessions are stored server-side and are deleted automatically when they expire.</p>
+            <p>The account contains nothing that connects to your real identity.</p>
+          </div>
+        </div>
+        <div class="privacy-block">
+          <div class="privacy-block-title">How IPs are handled</div>
+          <div class="privacy-block-body">
+            <p>Your IP address is used for rate limiting: the server enforces limits on signup attempts, sign-in attempts, and WebSocket connections. These counters are held in server memory and are not written to your account record in the database.</p>
+            <p>The Caddy reverse proxy writes standard HTTP access logs, which include the IP address of each request. This is default web server behavior. Your IP is not linked to your account anywhere in the database.</p>
+          </div>
+        </div>
+        <div class="privacy-block">
+          <div class="privacy-block-title">What this protects</div>
+          <div class="privacy-block-body">
+            <ul class="privacy-list">
+              <li>Your account cannot be traced back to an identity you use elsewhere. No email or phone number is required.</li>
+              <li>The site runs no third-party analytics, advertising networks, or tracking cookies.</li>
+              <li>Fonts are served from this server.</li>
+              <li>Content is served without any mechanism to identify you to other users by IP or device.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="privacy-block">
+          <div class="privacy-block-title">What this doesn't protect</div>
+          <div class="privacy-block-body">
+            <ul class="privacy-list">
+              <li>Your ISP can see that you connect to channels.zone.</li>
+              <li>Caddy writes standard HTTP access logs, which include the IP of each request.</li>
+              <li>Cinema rooms embed YouTube videos. If you watch one, Google receives your IP and may set cookies.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───── HOW IT WORKS ───── -->
+  <section id="how">
+    <div class="wrap">
+      <span class="s-label">How it works</span>
+      <div class="how-grid">
+        <div class="how-step">
+          <span class="how-num">1</span>
+          <div class="how-title">You get credentials. Not a form to fill out.</div>
+          <p class="how-body">A username is generated for you. Then a passphrase. Then 11 random words. The signup requires no personal information and takes about 30 seconds.</p>
+        </div>
+        <div class="how-step">
+          <span class="how-num">2</span>
+          <div class="how-title">Write them down. There's no recovery.</div>
+          <p class="how-body">Your credentials exist on your screen once, during signup. There is no "forgot my password" flow because there is no email address to reset to. If the credentials are lost, the account is gone. This is a feature, not an oversight.</p>
+        </div>
+        <div class="how-step">
+          <span class="how-num">3</span>
+          <div class="how-title">You're in. The rest is up to you.</div>
+          <p class="how-body">Browse the forum. Walk into a hub room. Claim a home in the neighborhood. Customize your avatar. Every account starts the same.</p>
+        </div>
+      </div>
+      <div class="how-cta">
+        <p class="how-cta-copy"><strong>None of this was readable until you were inside.</strong> Threads, hub rooms, neighborhoods: all of it required an account. That decision protected users completely &mdash; and, as it turned out, made the site impossible to grow.</p>
+        <div class="how-cta-actions">
+          <a href="https://youtu.be/6gTw8FKWJUM" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Watch the walkthrough</a>
+          <a href="#postmortem" class="btn btn-ghost">Why it ended</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── CHANGELOG ───── -->
+  <section id="changelog">
+    <div class="wrap">
+      <span class="s-label">Changelog</span>
+      <div class="cl-list">
+        <div class="cl-entry">
+          <div class="cl-ver-wrap">
+            <span class="cl-ver">v1.2 <span class="cl-badge">never shipped</span></span>
+            <span class="cl-date">&mdash;</span>
+          </div>
+          <div class="cl-body">
+            <ul class="cl-items">
+              <li>Home interiors rebuilt &mdash; in progress when development stopped</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cl-entry">
+          <div class="cl-ver-wrap">
+            <span class="cl-ver">v1.1 <span class="cl-badge">final release</span></span>
+            <span class="cl-date">13 Aug 2026</span>
+          </div>
+          <div class="cl-body">
+            <ul class="cl-items">
+              <li>Housing system added</li>
+              <li>Estate office added</li>
+              <li>Notification system added</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cl-entry">
+          <div class="cl-ver-wrap">
+            <span class="cl-ver">v1.0</span>
+            <span class="cl-date">5 Jul 2026</span>
+          </div>
+          <div class="cl-body">
+            <ul class="cl-items">
+              <li>Notification system improved</li>
+              <li>Chat system improved</li>
+              <li>Hub mechanics improved</li>
+              <li>Mobile support improved</li>
+              <li>Neighborhood system updated</li>
+              <li>Transportation improved</li>
+              <li>Border guards added</li>
+              <li>Guide system improved</li>
+              <li>Instrument mechanics improved</li>
+              <li>Instrument designs improved</li>
+              <li>More customization items added</li>
+              <li>User channels improved</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cl-entry">
+          <div class="cl-ver-wrap">
+            <span class="cl-ver">v0.5</span>
+            <span class="cl-date">30 Jun 2026</span>
+          </div>
+          <div class="cl-body">
+            <ul class="cl-items">
+              <li>Instrument mechanics improved</li>
+              <li>Moderator label added</li>
+              <li>Remember Me feature added</li>
+              <li>Spam prevention system added</li>
+              <li>User profiles added</li>
+              <li>h/paintit converted to a free shared canvas</li>
+              <li>Hub lobby rooms added</li>
+              <li>Hub NPCs added</li>
+              <li>Station system improved</li>
+              <li>New avatar customization items added</li>
+              <li>Landing pages updated</li>
+              <li>Mobile compatibility issues fixed</li>
+              <li>Security improved</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cl-entry">
+          <div class="cl-ver-wrap">
+            <span class="cl-ver">v0.1</span>
+            <span class="cl-date">21 Jun 2026</span>
+          </div>
+          <div class="cl-body">
+            <ul class="cl-items">
+              <li>Initial release</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── POST-MORTEM ───── -->
+  <section id="postmortem">
+    <div class="wrap">
+      <span class="s-label">Why it ended</span>
+      <div class="pm-grid">
+        <div>
+          <h2 class="pm-h2">A charter that forbids revenue.</h2>
+          <p class="pm-body"><strong>No revenue was possible by design.</strong> The site's own pillars were no ads, no algorithm, no investors, donations only. A product whose charter forbids revenue cannot be a business, and cannot be taken to investors without breaking the promise on its own front page.</p>
+          <p class="pm-body">Channels ran for six weeks on a VPS paid out of pocket. In August 2026 the bill stopped being worth paying for a site with no path to sustaining itself, and it was shut down.</p>
+          <p class="pm-close">Each of the decisions below was defensible in isolation. Together they made growth close to impossible. That tension &mdash; between protecting users completely and letting anyone discover you &mdash; is the thing this project actually taught me.</p>
+        </div>
+        <div>
+          <p class="pm-body"><strong>Zero organic users after launch.</strong> Not a marketing failure &mdash; structural:</p>
+          <div class="pm-reasons">
+            <div class="pm-reason">
+              <div class="pm-reason-t">Nothing was visible from outside.</div>
+              <p class="pm-reason-b">All threads, hubs and neighborhood content sat behind the signup wall, so nothing was indexable, shareable, or evaluable before committing.</p>
+            </div>
+            <div class="pm-reason">
+              <div class="pm-reason-t">Signup was maximum-friction.</div>
+              <p class="pm-reason-b">Generated credentials, 11 words to write on paper, no recovery ever &mdash; asked of a visitor who had not yet seen a single post.</p>
+            </div>
+            <div class="pm-reason">
+              <div class="pm-reason-t">Real-time social features need density.</div>
+              <p class="pm-reason-b">Empty music stages and 1,800 empty homes are worse than not having the feature at all.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── SUPPORT ───── -->
+  <section id="support">
+    <div class="wrap">
+      <span class="s-label">Support</span>
+      <div class="support-grid">
+        <div>
+          <h2 class="support-h2">The site is gone. The record isn't.</h2>
+          <div class="murph-card">
+            <div class="npc-av" id="npc-murph">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="56" height="56">
+                <defs><radialGradient id="bh5" cx="36%" cy="26%" r="55%"><stop offset="0%" stop-color="rgba(255,255,255,0.55)"/><stop offset="100%" stop-color="rgba(220,220,220,0.18)"/></radialGradient></defs>
+                <circle cx="50" cy="50" r="38" fill="#FAFAFA"/>
+                <circle cx="50" cy="50" r="38" fill="url(#bh5)"/>
+                <circle cx="37" cy="43" r="3.2" fill="#1A1A1A"/>
+                <circle cx="63" cy="43" r="3.2" fill="#1A1A1A"/>
+                <path d="M 41 58 Q 50 66 59 58" fill="none" stroke="#444" stroke-width="2.2" stroke-linecap="round"/>
+                <image href="avatars/acc/eye/murphs-shades.svg" x="0" y="0" width="100" height="100"/>
+              </svg>
+            </div>
+            <div>
+              <p class="murph-name">Murph</p>
+              <p class="murph-line">Murph guided new arrivals through the world. He's in the walkthrough.</p>
+            </div>
+          </div>
+          <p class="support-body">Channels was shut down in August 2026 and there is nothing left to sign into. The eight-minute walkthrough on YouTube is the closest thing to visiting it &mdash; the hub stages, the cinema rooms, the shared canvas and the neighborhood, all running live. For questions about how any of it was built, the email below still reaches me.</p>
+          <a class="contact-email" href="mailto:channelssupport@proton.me">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <polyline points="2,4 12,13 22,4"></polyline>
+            </svg>
+            channelssupport@proton.me
+            <span class="contact-email-arrow">&#8599;</span>
+          </a>
+          <a class="contact-email" href="https://www.instagram.com/channels.zone/" target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+              <circle cx="12" cy="12" r="5"></circle>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle>
+            </svg>
+            Instagram
+            <span class="contact-email-arrow">&#8599;</span>
+          </a>
+          <a class="contact-email" href="https://www.youtube.com/@channelszoneyoutube" target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/>
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/>
+            </svg>
+            YouTube
+            <span class="contact-email-arrow">&#8599;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Typewriter ──────────────────────────────────── */
+  const phrases = [
+    'Rooms, stages, a neighborhood, a shared canvas. All anonymous.',
+    'No name. No email. No profile. Nothing collected.',
+    'There is a world on the other side of signup.',
+    'We never asked for your data. There is nothing to hand over.',
+    'A place where nobody knows who you are. By design.',
+  ];
+
+  const el = document.getElementById('heroHeadline');
+  const cursor = el.querySelector('.hero-cursor');
+  let phraseIdx = 0, charIdx = phrases[0].length, deleting = true;
+
+  function setPhrase(text) {
+    while (el.firstChild && el.firstChild !== cursor) {
+      el.removeChild(el.firstChild);
+    }
+    el.insertBefore(document.createTextNode(text), cursor);
+  }
+
+  function tick() {
+    const phrase = phrases[phraseIdx];
+    if (!deleting) {
+      setPhrase(phrase.slice(0, ++charIdx));
+      if (charIdx === phrase.length) {
+        deleting = true;
+        setTimeout(tick, 2800);
+        return;
+      }
+      setTimeout(tick, 38);
+    } else {
+      setPhrase(phrase.slice(0, --charIdx));
+      if (charIdx === 0) {
+        deleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        setTimeout(tick, 420);
+        return;
+      }
+      setTimeout(tick, 16);
+    }
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setPhrase(phrases[0]);
+  } else {
+    setTimeout(tick, 2400);
+  }
+}());
+</script>
+</body>
+</html>

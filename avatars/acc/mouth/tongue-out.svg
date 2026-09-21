@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Tongue overlapping smile arc (smile lowest point: ~50,62) -->
+  <path d="M44 60 C43 78 57 78 56 60 Z" fill="#e04060"/>
+  <!-- Median groove -->
+  <line x1="50" y1="62" x2="50" y2="76" stroke="#c0304e" stroke-width="1.3" stroke-linecap="round" opacity="0.65"/>
+  <!-- Highlight -->
+  <ellipse cx="47" cy="65" rx="2" ry="3.2" fill="rgba(255,255,255,0.28)"/>
+</svg>

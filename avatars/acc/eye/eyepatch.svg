@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Strap going left (around back of head) -->
+  <line x1="27" y1="43" x2="18" y2="43" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Strap going right (across face and around) -->
+  <line x1="47" y1="43" x2="82" y2="39" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Patch -->
+  <ellipse cx="37" cy="43" rx="10" ry="9" fill="#111111"/>
+  <ellipse cx="37" cy="43" rx="10" ry="9" fill="none" stroke="#333333" stroke-width="1.2"/>
+</svg>

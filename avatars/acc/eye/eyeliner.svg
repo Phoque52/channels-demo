@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Left eye: upper lash line following top arc of eye circle (cx=37,cy=43,r=3.2), then wing -->
+  <path d="M40 42 Q37 39 34 42 L31 38.5" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right eye: mirror (cx=63,cy=43) -->
+  <path d="M60 42 Q63 39 66 42 L69 38.5" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

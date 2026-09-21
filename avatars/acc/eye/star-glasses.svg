@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Left star lens: 5-point star centered at (37,43) outer r=9 inner r=3.8 -->
+  <polygon points="37,34 39.2,39.9 45.6,40.2 40.6,44.2 42.3,50.3 37,46.8 31.7,50.3 33.4,44.2 28.4,40.2 34.8,39.9"
+    fill="rgba(255,215,0,0.18)" stroke="#c8a02a" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- Right star lens: shifted right by 26 -->
+  <polygon points="63,34 65.2,39.9 71.6,40.2 66.6,44.2 68.3,50.3 63,46.8 57.7,50.3 59.4,44.2 54.4,40.2 60.8,39.9"
+    fill="rgba(255,215,0,0.18)" stroke="#c8a02a" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- Bridge -->
+  <line x1="46" y1="43" x2="54" y2="43" stroke="#c8a02a" stroke-width="1.8"/>
+  <!-- Arms -->
+  <line x1="28" y1="41" x2="18" y2="44" stroke="#c8a02a" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="72" y1="41" x2="82" y2="44" stroke="#c8a02a" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

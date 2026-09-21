@@ -1,0 +1,6 @@
+# Channels — archived project record
+# The site itself is offline; this page is a preserved record.
+User-agent: *
+Allow: /
+
+Sitemap: https://phoque52.github.io/channels-demo/sitemap.xml
